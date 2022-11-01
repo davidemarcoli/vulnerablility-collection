@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script rel="script" src="script.js" defer></script>
+    <title>Code Execution</title>
+</head>
+<body>
+<div class="container">
+    <br>
+    <!-- Title -->
+    <h1>Hello my User!</h1>
+    <!-- Description -->
+    <p>A file is lurking in the depths of this server. Can you find it?</p>
+
+    <!-- Form for command execution -->
+    <form onsubmit="onSubmit()">
+        <div class="mb-3">
+            <label for="command" class="form-label">Command</label>
+            <input type="text" class="form-control" id="command" name="command" placeholder="Enter command">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <!-- Output -->
+    <div id="result"></div>
+
+    <div class="accordion" id="accordionHint">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="hintHeadingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#hintCollapseOne" aria-expanded="true" aria-controls="hintCollapseOne">
+                    Hint
+                </button>
+            </h2>
+            <div id="hintCollapseOne" class="accordion-collapse collapse" aria-labelledby="hintHeadingOne" data-bs-parent="#accordionHint">
+                <div class="accordion-body">
+                    <!-- Hint -->
+                    <p>The file is in the same directory as this page and contains the flag.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+
+    <div class="accordion" id="accordionSolution">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="solutionHeadingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#solutionCollapseOne" aria-expanded="true" aria-controls="solutionCollapseOne">
+                    Solution
+                </button>
+            </h2>
+            <div id="solutionCollapseOne" class="accordion-collapse collapse" aria-labelledby="solutionHeadingOne" data-bs-parent="#accordionSolution">
+                <div class="accordion-body">
+                    <!-- Solution -->
+                    <p>Use the following path to access the file: <code>./flag.txt</code></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
