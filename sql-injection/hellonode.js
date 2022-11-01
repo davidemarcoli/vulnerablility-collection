@@ -29,13 +29,14 @@ var con = mysql.createConnection({
   port: 3307,
 });
 
-server.get("/login", function (req, res) {
+server.on("/login", function (req, res) {
+  console.log(req);
   var username = req.query.username;
   var password = req.query.password;
   con.connect(function (err) {
     if (err) throw err;
     console.log("Connected!");
-    var sql = "SELECT * FROM users WHERE username = '" + username + "'";
+    var sql = "SELECT * FROM users WHERE email = '" + email + "'";
     con.query(sql, function (err, result) {
       if (err) throw err;
       console.log(result);
@@ -48,6 +49,26 @@ server.get("/login", function (req, res) {
       } else {
         res.send("Login Failed");
       }
+    });
+  });
+});
+
+server.on("/register", function (req, res) {
+  var email = req.query.email;
+  var password = req.query.password;
+  con.connect(function (err) {
+    if (err) throw err;
+    console.log("Connected!");
+    var sql =
+      "INSERT INTO users (email, password) VALUES ('" +
+      email +
+      "', '" +
+      password +
+      "')";
+    con.query(sql, function (err, result) {
+      if (err) throw err;
+      console.log(result);
+      res.send("Register Success");
     });
   });
 });
