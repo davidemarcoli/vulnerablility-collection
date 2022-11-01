@@ -19,6 +19,10 @@ async function executeCommand(command) {
             console.log('Stdout: ' + stdout);
             lastCommandResult = stdout;
         }
+        if (!error && !stderr && !stdout) {
+            console.log('No output, command executed successfully');
+            lastCommandResult = 'No output, command executed successfully';
+        }
 
     });
 }
